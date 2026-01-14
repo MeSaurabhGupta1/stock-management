@@ -1,0 +1,71 @@
+.skeleton-item {
+  pointer-events: none;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(230, 230, 240, 0.6) 25%,
+    rgba(210, 210, 220, 0.9) 50%,
+    rgba(230, 230, 240, 0.6) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton-text {
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.skeleton-title {
+  width: 80%;
+  height: 18px;
+  margin-bottom: 4px;
+}
+
+.skeleton-subtitle {
+  width: 50%;
+  height: 12px;
+}
+
+.skeleton-price {
+  width: 70%;
+  height: 20px;
+  margin: 0 auto 4px;
+}
+
+.skeleton-change {
+  width: 60%;
+  height: 16px;
+  margin: 0 auto 4px;
+}
+
+.skeleton-badge {
+  width: 60%;
+  height: 24px;
+  margin: 0 auto 4px;
+  border-radius: 12px;
+}
+
+.skeleton-value {
+  width: 50%;
+  height: 16px;
+  margin: 0 auto 4px;
+}
+
+.skeleton-label {
+  width: 40%;
+  height: 10px;
+  margin: 0 auto;
+}

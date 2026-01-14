@@ -1,0 +1,15 @@
+.title-text {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 2rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(102, 126, 234, 0.5);
+  letter-spacing: -0.5px;
+}
+
+.subtitle-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
