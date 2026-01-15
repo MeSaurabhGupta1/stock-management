@@ -12,7 +12,7 @@ export const MinCurrentPrice: React.FC<MinCurrentPriceProps> = ({
 }) => {
   return (
     <>
-      <label className="form-label small fw-bold text-white mb-2">
+      <label className="form-label small fw-bold text-white mb-0">
         <IoCashOutline className="me-1" /> Min Current Price
       </label>
       <input
@@ -41,7 +41,7 @@ export const MinPercentageChange: React.FC<MinPercentageChangeProps> = ({
 }) => {
   return (
     <>
-      <label className="form-label small fw-bold text-white mb-2">
+      <label className="form-label small fw-bold text-white mb-0">
         <IoTrendingUp className="me-1" /> Min % Change
       </label>
       <input

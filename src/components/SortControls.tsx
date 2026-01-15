@@ -12,11 +12,11 @@ const SortControls: React.FC<SortControlsProps> = ({
 }) => {
   return (
     <>
-      <label className="form-label small fw-bold text-white mb-2">
+      <label className="form-label small fw-bold text-white mb-0">
         <IoSync className="me-1" /> Sort By
       </label>
       <select
-        className="form-select modern-input "
+        className="form-select modern-input" style={{cursor: 'pointer'}}
         value={sortField}
         onChange={(e) => onSortChange(e.target.value as SortField)}
       >

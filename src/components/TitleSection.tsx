@@ -1,14 +1,17 @@
 import React from "react";
-import { IoTrendingUp, IoSparkles } from "react-icons/io5";
+import { IoTrendingUp } from "react-icons/io5";
+import { FaMoneyBillAlt } from "react-icons/fa";
 import "./TitleSection.css";
 
 const TitleSection: React.FC = () => {
   return (
-    <div className="d-flex flex-column justify-content-center mb-2">
-      <h1 className="text-center title-text"><IoTrendingUp className="me-2" /> Stock Market Viewer</h1>
-      <p className="text-center subtitle-text">
-        Real-time stock data with advanced filtering and sorting <IoSparkles className="ms-1" />
-      </p>
+    <div className="title-section-container d-flex justify-content-between align-items-center">
+      <h4>
+        <FaMoneyBillAlt />
+      </h4>
+      <h4>
+        <IoTrendingUp className="me-2" /> Stock Market Viewer
+      </h4>
     </div>
   );
 };

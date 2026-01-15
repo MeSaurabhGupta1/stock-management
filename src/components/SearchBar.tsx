@@ -12,7 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   return (
     <>
-      <label className="form-label small fw-bold text-white mb-1">
+      <label className="form-label small fw-bold text-white mb-0">
         <IoSearchOutline className="me-1" /> Search Stocks
       </label>
       <input

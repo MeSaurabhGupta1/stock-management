@@ -13,9 +13,9 @@ interface StockListProps {
 const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
   if (loading) {
     return (
-      <div>
-        <div className="d-flex justify-content-between align-items-center mb-1">
-          <h4 className="text-white">Stock Results</h4>
+      <div className="m-3">
+        <div className="d-flex justify-content-between align-items-center">
+          <h6 className="text-white">Stock Results</h6>
           <span className="badge bg-primary rounded-pill fs-6">Loading...</span>
         </div>
         {/* Show 5 skeleton loaders */}
@@ -28,7 +28,7 @@ const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
 
   if (error) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className="alert alert-danger m-3" role="alert">
         <h4 className="alert-heading">Error Loading Stocks</h4>
         <p>{error}</p>
       </div>
@@ -37,7 +37,7 @@ const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
 
   if (stocks.length === 0) {
     return (
-      <div className="alert alert-info" role="alert">
+      <div className="alert alert-info m-3" role="alert">
         <h4 className="alert-heading">No Stocks Found</h4>
         <p>No stocks match your current filters or search criteria.</p>
       </div>
@@ -45,13 +45,16 @@ const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
   }
 
   return (
-    <>
+    <div className="m-3">
       <div
         className="d-flex justify-content-between align-items-center"
         style={{ position: "sticky" }}
       >
-        <h4 className="text-white">Stock Results</h4>
-        <span className="badge bg-primary rounded-pill fs-6">
+        <h6 className="text-white">Stock Results</h6>
+        <span
+          className="badge bg-primary rounded-pill fs-7"
+          style={{ fontSize: "0.75rem" }}
+        >
           {stocks.length} {stocks.length === 1 ? "stock" : "stocks"}
         </span>
       </div>
@@ -60,7 +63,7 @@ const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
           <StockItem key={stock.companyid} stock={stock} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

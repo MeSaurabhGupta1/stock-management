@@ -48,7 +48,7 @@ const App: React.FC = () => {
     // Apply current price filter
     if (filters.minCurrent > 0) {
       result = result.filter(
-        (stock) => parseFloat(stock.current) > filters.minCurrent
+        (stock) => parseFloat(stock.current) >= filters.minCurrent
       );
     }
 
@@ -56,7 +56,7 @@ const App: React.FC = () => {
     if (filters.minPercentageChange > 0) {
       result = result.filter(
         (stock) =>
-          parseFloat(stock.percentagechange) > filters.minPercentageChange
+          parseFloat(stock.percentagechange) >= filters.minPercentageChange
       );
     }
 

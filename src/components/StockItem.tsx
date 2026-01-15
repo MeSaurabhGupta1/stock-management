@@ -1,5 +1,4 @@
 import React from "react";
-import { IoCaretUp, IoCaretDown } from "react-icons/io5";
 import { Stock } from "../types/Stock";
 import "./StockItem.css";
 
@@ -17,18 +16,18 @@ const StockItem: React.FC<StockItemProps> = ({ stock }) => {
   const isPositive = absoluteChange >= 0;
 
   return (
-    <div className="card d-flex flex-row align-items-center gap-2 mb-1 p-1 ps-4 pe-4">
-      <div className="stock-company-section">
+    <div className="card d-flex flex-row align-items-center gap-2 mt-1 mb-1 p-1 ps-4 pe-4">
+      <div className="stock-company-section d-flex flex-column gap-0">
         <div className="fw-bold stock-company-name">
           {stock.companyShortName}
         </div>
         <small className="text-muted stock-ticker">{stock.ticker}</small>
       </div>
-      <div className="stock-data-section text-end">
+      <div className="stock-data-section d-flex flex-column gap-0 align-items-end">
         <div className="fw-bold stock-current-price">₹{current.toFixed(2)}</div>
         <small className="text-muted stock-label">Current</small>
       </div>
-      <div className="stock-data-section text-end">
+      <div className="stock-data-section d-flex flex-column gap-0 align-items-end">
         <div
           className={`${
             isPositive ? "text-success" : "text-danger"
@@ -38,7 +37,7 @@ const StockItem: React.FC<StockItemProps> = ({ stock }) => {
         </div>
         <small className="text-muted stock-label">Change</small>
       </div>
-      <div className="stock-data-section text-end">
+      <div className="stock-data-section d-flex flex-column gap-0 align-items-end">
         <span
           className={`badge ${
             isPositive ? "bg-success" : "bg-danger"
@@ -47,17 +46,15 @@ const StockItem: React.FC<StockItemProps> = ({ stock }) => {
           {isPositive ? "+" : ""}
           {percentageChange.toFixed(2)}%
         </span>
-        <div>
-          <small className="text-muted stock-label">% Change</small>
-        </div>
+        <small className="text-muted stock-label">% Change</small>
       </div>
-      <div className="stock-data-section text-end">
+      <div className="stock-data-section d-flex flex-column gap-0 align-items-end">
         <div className="text-success fw-bold stock-high-low">
           {high.toFixed(2)}
         </div>
         <small className="text-muted stock-label">High</small>
       </div>
-      <div className="stock-data-section text-end">
+      <div className="stock-data-section d-flex flex-column gap-0 align-items-end">
         <div className="text-danger fw-bold stock-high-low">
           {low.toFixed(2)}
         </div>

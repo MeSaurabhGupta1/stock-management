@@ -23,7 +23,7 @@ const ControlsHeader: React.FC<ControlsHeaderProps> = ({
   onSortChange,
 }) => {
   return (
-    <div className="d-flex gap-2 align-items-center ps-1 pe-1 mb-2">
+    <div className="d-flex gap-2 align-items-center m-3">
       <div className="search-bar-container">
         <SearchBar searchTerm={searchTerm} onSearchChange={onSearchChange} />
       </div>
