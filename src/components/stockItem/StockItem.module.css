@@ -1,0 +1,98 @@
+.card {
+  background: #ffffff;
+  border-radius: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+}
+
+.card:hover {
+  background: #fafafa;
+  border-color: #d0d0d0;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stockCompanyName {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: #333333;
+}
+
+.stockTicker {
+  font-size: 0.65rem;
+  color: #888888;
+}
+
+.stockCurrentPrice {
+  font-size: 0.95rem;
+  line-height: 1.2;
+  color: #333333;
+}
+
+.stockChange {
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+.stockBadge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+}
+
+.stockHighLow {
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+.stockLabel {
+  font-size: 0.65rem;
+  line-height: 1;
+  color: #888888;
+}
+
+.textSuccess {
+  color: #27ae60;
+  text-shadow: none;
+}
+
+.textDanger {
+  color: #e74c3c;
+  text-shadow: none;
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+.bgSuccess {
+  background: #4bc980;
+  box-shadow: none;
+}
+
+.bgDanger {
+  background: #e74c3c;
+  box-shadow: none;
+}
+
+/* Layout Classes */
+.stockCompanySection {
+  width: 33%;
+}
+
+.stockDataSection {
+  flex: 1;
+}
+
+/* Card Title Gradient */
+.card h6 {
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

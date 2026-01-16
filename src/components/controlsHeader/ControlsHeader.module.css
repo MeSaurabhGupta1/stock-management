@@ -1,0 +1,27 @@
+.searchBarContainer {
+  flex: 0 0 40%;
+}
+
+.filterContainer {
+  flex: 1;
+}
+
+.clearFilterButton {
+  border-radius: 50%;
+  font-size: 1.5rem;
+  margin-top: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: #ffffff;
+  color: #dc3545;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.clearFilterButton:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+}

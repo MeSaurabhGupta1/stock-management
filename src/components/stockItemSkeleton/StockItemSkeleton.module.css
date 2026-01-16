@@ -1,4 +1,4 @@
-.skeleton-item {
+.skeletonItem {
   pointer-events: none;
 }
 
@@ -10,11 +10,11 @@
     rgba(230, 230, 240, 0.6) 75%
   );
   background-size: 200% 100%;
-  animation: skeleton-loading 1.5s ease-in-out infinite;
+  animation: skeletonLoading 1.5s ease-in-out infinite;
   border-radius: 8px;
 }
 
-@keyframes skeleton-loading {
+@keyframes skeletonLoading {
   0% {
     background-position: 200% 0;
   }
@@ -23,48 +23,48 @@
   }
 }
 
-.skeleton-text {
+.skeletonText {
   height: 16px;
   margin-bottom: 8px;
 }
 
-.skeleton-title {
+.skeletonTitle {
   width: 80%;
   height: 18px;
   margin-bottom: 4px;
 }
 
-.skeleton-subtitle {
+.skeletonSubtitle {
   width: 50%;
   height: 12px;
 }
 
-.skeleton-price {
+.skeletonPrice {
   width: 70%;
   height: 20px;
   margin: 0 auto 4px;
 }
 
-.skeleton-change {
+.skeletonChange {
   width: 60%;
   height: 16px;
   margin: 0 auto 4px;
 }
 
-.skeleton-badge {
+.skeletonBadge {
   width: 60%;
   height: 24px;
   margin: 0 auto 4px;
   border-radius: 12px;
 }
 
-.skeleton-value {
+.skeletonValue {
   width: 50%;
   height: 16px;
   margin: 0 auto 4px;
 }
 
-.skeleton-label {
+.skeletonLabel {
   width: 40%;
   height: 10px;
   margin: 0 auto;

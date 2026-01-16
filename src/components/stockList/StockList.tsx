@@ -1,34 +1,30 @@
 import React from "react";
-import { Stock } from "../types/Stock";
-import StockItem from "./StockItem";
-import StockItemSkeleton from "./StockItemSkeleton";
-import "./StockList.css";
-
-interface StockListProps {
-  stocks: Stock[];
-  loading: boolean;
-  error: string | null;
-}
+import StockItem from "../stockItem/StockItem";
+import StockItemSkeleton from "../stockItemSkeleton/StockItemSkeleton";
+import styles from "./StockList.module.css";
+import { StockListProps } from "./StockList.type";
 
 const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
   if (loading) {
     return (
-      <div className="m-3">
+      <section className="m-3">
         <div className="d-flex justify-content-between align-items-center">
-          <h6 className="text-white">Stock Results</h6>
-          <span className="badge bg-primary rounded-pill fs-6">Loading...</span>
+          <h6 className={styles.headerColor}>Stock Results</h6>
+          <span className={`${styles.badge} rounded-pill fs-7`}>
+            Loading...
+          </span>
         </div>
         {/* Show 5 skeleton loaders */}
         {[...Array(5)].map((_, index) => (
           <StockItemSkeleton key={`skeleton-${index}`} />
         ))}
-      </div>
+      </section>
     );
   }
 
   if (error) {
     return (
-      <div className="alert alert-danger m-3" role="alert">
+      <div className={`${styles.alert} alert-danger m-3`} role="alert">
         <h4 className="alert-heading">Error Loading Stocks</h4>
         <p>{error}</p>
       </div>
@@ -37,7 +33,7 @@ const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
 
   if (stocks.length === 0) {
     return (
-      <div className="alert alert-info m-3" role="alert">
+      <div className={`${styles.alert} alert-info m-3`} role="alert">
         <h4 className="alert-heading">No Stocks Found</h4>
         <p>No stocks match your current filters or search criteria.</p>
       </div>
@@ -45,25 +41,21 @@ const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
   }
 
   return (
-    <div className="m-3">
+    <section className="m-3">
       <div
-        className="d-flex justify-content-between align-items-center"
-        style={{ position: "sticky" }}
+        className={`${styles.header} d-flex justify-content-between align-items-center mb-2`}
       >
-        <h6 className="text-white">Stock Results</h6>
-        <span
-          className="badge bg-primary rounded-pill fs-7"
-          style={{ fontSize: "0.75rem" }}
-        >
+        <h6 className={styles.headerColor}>Stock Results</h6>
+        <span className={`${styles.badge} rounded-pill fs-7`}>
           {stocks.length} {stocks.length === 1 ? "stock" : "stocks"}
         </span>
       </div>
-      <div className="stock-results-container">
+      <div className={styles.stockResultsContainer}>
         {stocks.map((stock) => (
           <StockItem key={stock.companyid} stock={stock} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

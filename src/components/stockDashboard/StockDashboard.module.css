@@ -1,0 +1,12 @@
+.dashboardContainer {
+  min-height: 80vh;
+}
+
+.stickyHeader {
+  position: sticky;
+  top: 3rem;
+  z-index: 999;
+  background: #ffffff;
+  padding-bottom: 0.125rem;
+  border-bottom: 1px solid #e0e0e0;
+}

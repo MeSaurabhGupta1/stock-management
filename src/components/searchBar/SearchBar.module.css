@@ -1,0 +1,23 @@
+.inputWrapper {
+  position: relative;
+}
+
+.clearButton {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #95a5a6;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.clearButton:hover {
+  color: gray;
+}
