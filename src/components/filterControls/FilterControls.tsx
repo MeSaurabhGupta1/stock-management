@@ -2,8 +2,9 @@ import React from "react";
 import { IoCashOutline, IoTrendingUp } from "react-icons/io5";
 import { MinCurrentPriceProps } from "./FilterControls.type";
 import styles from "../../App.module.css";
+import { MIN_NUMERIC_VALUE, NUMERIC_STEP } from "../../constants";
 
-export const MinCurrentPrice: React.FC<MinCurrentPriceProps> = ({
+export const MinCurrentPrice: React.FC<MinCurrentPriceProps> = React.memo(({
   value,
   onChange,
 }) => {
@@ -13,7 +14,7 @@ export const MinCurrentPrice: React.FC<MinCurrentPriceProps> = ({
 
   return (
     <>
-      <label className="fs-6 fw-bold text-secondary mb-0">
+      <label className="fs-6 fw-bold text-secondary mb-0" id="min-current-label">
         <IoCashOutline className="me-1" /> Min Current Price
       </label>
       <input
@@ -22,19 +23,22 @@ export const MinCurrentPrice: React.FC<MinCurrentPriceProps> = ({
         placeholder="Filter by min price e.g., 100"
         value={value || ""}
         onChange={handleChange}
-        min="0"
-        step="0.01"
+        min={MIN_NUMERIC_VALUE}
+        step={NUMERIC_STEP}
+        aria-label="Minimum current price filter"
+        aria-describedby="min-current-label"
       />
     </>
   );
-};
+});
 
-interface MinPercentageChangeProps {
+export interface MinPercentageChangeProps {
   value: number;
   onChange: (value: number) => void;
 }
 
-export const MinPercentageChange: React.FC<MinPercentageChangeProps> = ({
+export const MinPercentageChange: React.FC<MinPercentageChangeProps> = React.memo((
+  {
   value,
   onChange,
 }) => {
@@ -44,7 +48,7 @@ export const MinPercentageChange: React.FC<MinPercentageChangeProps> = ({
 
   return (
     <>
-      <label className="fs-6 fw-bold text-secondary mb-0">
+      <label className="fs-6 fw-bold text-secondary mb-0" id="min-percentage-label">
         <IoTrendingUp className="me-1" /> Min % Change
       </label>
       <input
@@ -53,9 +57,11 @@ export const MinPercentageChange: React.FC<MinPercentageChangeProps> = ({
         placeholder="Filter by % change e.g., 5"
         value={value || ""}
         onChange={handleChange}
-        min="0"
-        step="0.01"
+        min={MIN_NUMERIC_VALUE}
+        step={NUMERIC_STEP}
+        aria-label="Minimum percentage change filter"
+        aria-describedby="min-percentage-label"
       />
     </>
   );
-};
+});

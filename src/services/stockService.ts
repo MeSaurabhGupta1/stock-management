@@ -1,8 +1,8 @@
 import { ApiResponse } from "../types/Stock";
+import { API_URL } from "../constants";
 
 // Use Vite proxy to bypass CORS restrictions
 // In development: /api/* -> https://json.bselivefeeds.indiatimes.com/*
-const API_URL = "/api/ET_Community/Gain?pagesize=100";
 
 export const fetchStocks = async (): Promise<ApiResponse> => {
   try {

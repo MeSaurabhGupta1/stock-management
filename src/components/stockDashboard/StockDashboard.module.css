@@ -5,7 +5,7 @@
 .stickyHeader {
   position: sticky;
   top: 3rem;
-  z-index: 999;
+  z-index: var(--z-sticky);
   background: #ffffff;
   padding-bottom: 0.125rem;
   border-bottom: 1px solid #e0e0e0;

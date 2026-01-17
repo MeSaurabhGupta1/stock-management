@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import ControlsHeader from "../controlsHeader/ControlsHeader";
 import StockList from "../stockList/StockList";
 import { Stock, FilterOptions, SortField } from "../../types/Stock";
 import { fetchStocks } from "../../services/stockService";
+import { parseFloatSafe } from "../../utils/numberUtils";
 import styles from "./StockDashboard.module.css";
 
 const StockDashboard: React.FC = () => {
@@ -33,6 +34,18 @@ const StockDashboard: React.FC = () => {
     }
   };
 
+  const handleSearchChange = useCallback((term: string) => {
+    setSearchTerm(term);
+  }, []);
+
+  const handleFilterChange = useCallback((newFilters: FilterOptions) => {
+    setFilters(newFilters);
+  }, []);
+
+  const handleSortChange = useCallback((field: SortField) => {
+    setSortField(field);
+  }, []);
+
   const filteredAndSortedStocks = useMemo(() => {
     let result = [...stocks];
 
@@ -46,7 +59,7 @@ const StockDashboard: React.FC = () => {
     // Apply current price filter
     if (filters.minCurrent > 0) {
       result = result.filter(
-        (stock) => parseFloat(stock.current) >= filters.minCurrent
+        (stock) => parseFloatSafe(stock.current) >= filters.minCurrent
       );
     }
 
@@ -54,15 +67,15 @@ const StockDashboard: React.FC = () => {
     if (filters.minPercentageChange > 0) {
       result = result.filter(
         (stock) =>
-          parseFloat(stock.percentagechange) >= filters.minPercentageChange
+          parseFloatSafe(stock.percentagechange) >= filters.minPercentageChange
       );
     }
 
     // Apply sorting
     if (sortField) {
       result.sort((a, b) => {
-        const aValue = parseFloat(a[sortField]);
-        const bValue = parseFloat(b[sortField]);
+        const aValue = parseFloatSafe(a[sortField]);
+        const bValue = parseFloatSafe(b[sortField]);
         return aValue - bValue;
       });
     }
@@ -76,11 +89,11 @@ const StockDashboard: React.FC = () => {
         {/* Controls Header */}
         <ControlsHeader
           searchTerm={searchTerm}
-          onSearchChange={setSearchTerm}
+          onSearchChange={handleSearchChange}
           filters={filters}
-          onFilterChange={setFilters}
+          onFilterChange={handleFilterChange}
           sortField={sortField}
-          onSortChange={setSortField}
+          onSortChange={handleSortChange}
         />
       </div>
 

@@ -2,7 +2,8 @@ import React from "react";
 import { IoSync } from "react-icons/io5";
 import { SortControlsProps } from "./SortControls.type";
 import { SortField } from "../../types/Stock";
-import styles from "../../App.module.css";
+import appStyles from "../../App.module.css";
+import styles from "./SortControls.module.css";
 
 const SortControls: React.FC<SortControlsProps> = ({
   sortField,
@@ -18,8 +19,7 @@ const SortControls: React.FC<SortControlsProps> = ({
         <IoSync className="me-1" /> Sort By
       </label>
       <select
-        className={styles.modernInput}
-        style={{ cursor: "pointer" }}
+        className={`${appStyles.modernInput} ${styles.selectInput}`}
         value={sortField}
         onChange={handleSortChange}
       >
@@ -32,4 +32,4 @@ const SortControls: React.FC<SortControlsProps> = ({
   );
 };
 
-export default SortControls;
+export default React.memo(SortControls);

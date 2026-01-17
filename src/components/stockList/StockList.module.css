@@ -2,9 +2,6 @@
   position: sticky;
 }
 .stockResultsContainer {
-  max-height: 24rem;
-  overflow-y: auto;
-  overflow-x: hidden;
   padding-right: 8px;
   scrollbar-width: thin;
   scrollbar-color: #bdc3c7 transparent;
@@ -12,12 +9,6 @@
 }
 .headerColor {
   color: #333333;
-}
-.spinnerBorder {
-  width: 3rem;
-  height: 3rem;
-  color: #ffffff;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .alert {

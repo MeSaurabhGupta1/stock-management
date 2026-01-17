@@ -16,4 +16,4 @@ const TitleSection: React.FC = () => {
   );
 };
 
-export default TitleSection;
+export default React.memo(TitleSection);

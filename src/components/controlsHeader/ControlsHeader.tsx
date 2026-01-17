@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import SearchBar from "../searchBar/SearchBar";
 import {
   MinCurrentPrice,
@@ -8,6 +8,7 @@ import SortControls from "../sortControls/SortControls";
 import styles from "./ControlsHeader.module.css";
 import { ControlsHeaderProps } from "./ControlsHeader.type";
 import { MdFilterAltOff } from "react-icons/md";
+import { DEFAULT_MIN_CURRENT, DEFAULT_MIN_PERCENTAGE_CHANGE } from "../../constants";
 
 const ControlsHeader: React.FC<ControlsHeaderProps> = ({
   searchTerm,
@@ -17,16 +18,17 @@ const ControlsHeader: React.FC<ControlsHeaderProps> = ({
   sortField,
   onSortChange,
 }) => {
-  const handleMinCurrentChange = (value: number) => {
+  const handleMinCurrentChange = useCallback((value: number) => {
     onFilterChange({ ...filters, minCurrent: value });
-  };
+  }, [filters, onFilterChange]);
 
-  const handleMinPercentageChange = (value: number) => {
+  const handleMinPercentageChange = useCallback((value: number) => {
     onFilterChange({ ...filters, minPercentageChange: value });
-  };
-  const clearAllFilters = () => {
-    onFilterChange({ minCurrent: 0, minPercentageChange: 0 });
-  };
+  }, [filters, onFilterChange]);
+
+  const clearAllFilters = useCallback(() => {
+    onFilterChange({ minCurrent: DEFAULT_MIN_CURRENT, minPercentageChange: DEFAULT_MIN_PERCENTAGE_CHANGE });
+  }, [onFilterChange]);
   return (
     <nav className="d-flex gap-2 align-items-center mx-3 mb-2 pt-2">
       <div className={styles.searchBarContainer}>
@@ -60,4 +62,4 @@ const ControlsHeader: React.FC<ControlsHeaderProps> = ({
   );
 };
 
-export default ControlsHeader;
+export default React.memo(ControlsHeader);
