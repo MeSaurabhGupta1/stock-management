@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import StockItem from "../stockItem/StockItem";
 import StockItemSkeleton from "../stockItemSkeleton/StockItemSkeleton";
+import Pagination from "../pagination/Pagination";
 import styles from "./StockList.module.css";
 import { StockListProps } from "./StockList.type";
+import { ITEMS_PER_PAGE } from "../../constants";
 
 const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Reset to page 1 when stocks change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [stocks]);
+
+  // Calculate pagination values
+  const totalPages = Math.ceil(stocks.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentStocks = stocks.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
   if (loading) {
     return (
       <section className="m-3">
@@ -39,7 +57,6 @@ const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
       </div>
     );
   }
-
   return (
     <section className="m-3">
       <div
@@ -51,10 +68,15 @@ const StockList: React.FC<StockListProps> = ({ stocks, loading, error }) => {
         </span>
       </div>
       <div className={styles.stockResultsContainer}>
-        {stocks.map((stock) => (
-          <StockItem key={stock.companyid} stock={stock} />
+        {currentStocks.map((stock, index) => (
+          <StockItem key={index} stock={stock} />
         ))}
       </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </section>
   );
 };
