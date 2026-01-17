@@ -19,7 +19,7 @@ export const formatPercentage = (
   includeSign: boolean = true,
   decimals: number = 2
 ): string => {
-  const sign = includeSign && value >= 0 ? "+" : "";
+  const sign = includeSign && value >= 0 ? "+" : "-";
   return `${sign}${formatNumber(value, decimals)}%`;
 };
 
